@@ -2,12 +2,13 @@ require('dotenv').config();
 
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+//const User = require("../models/user-model.js");
 const User = require("../models/user-model.js");
 
 mongoose.Promise = Promise; 
 
 mongoose 
-  .connect("mongodb://localhost/ease-incoterm", {useMongoClient : true})
+  .connect("mongodb://localhost/ease-incoterm-backend", {useMongoClient : true})
   .then(() => {
     console.log('Connected to MongoDB for users!')
   }).catch(err => {

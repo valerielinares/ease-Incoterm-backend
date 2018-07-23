@@ -3,10 +3,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const iccSchema = new Schema({
-  iccShortCode: {type: String, required: true},
-  iccFulName: {type: String, required: true},
-  iccDefinition: {type: String, required: true},
-  assocLinerTerm: {type: String, required: false}
+  iccShortCode: {type: String, required: true, unique: true},
+  iccIndex: {type: Number, required: true, unique: true},
+  iccFulName: {type: String, required: true, unique: true},
+  iccDefinition: {type: String, required: true, unique: true},
+  assocLinerTerm: {type: String, required: false, unique: true}
 },{
   timestamps: true
 });
