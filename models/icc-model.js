@@ -7,7 +7,7 @@ const iccSchema = new Schema({
   iccIndex: {type: Number, required: true, unique: true},
   iccFulName: {type: String, required: true, unique: true},
   iccDefinition: {type: String, required: true, unique: true},
-  assocLinerTerm: {type: String, required: false, unique: true}
+  assocLinerTerm: {type: String, required: false, unique: false}
 },{
   timestamps: true
 });
