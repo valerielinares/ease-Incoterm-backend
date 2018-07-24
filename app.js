@@ -17,7 +17,7 @@ const passportSetup = require("./passport/setup.js");
 
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/ease-incoterm-backend', {useMongoClient: true})
+  .connect(process.env.MONGODB_URI, {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
@@ -83,5 +83,9 @@ app.use("/api", requestRouter);
 const authRouter = require("./routes/auth-router.js");
 app.use("/api", authRouter);
 
+//AFTER your routes --> send the Angular HTML instead of 404)
+app.use((req, res, next) => {
+  res.sendFile(`${__dirname}/public/index.html`)
+});
 
 module.exports = app;

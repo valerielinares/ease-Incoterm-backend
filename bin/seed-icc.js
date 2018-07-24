@@ -7,7 +7,7 @@ const Icc = require("../models/icc-model.js");
 mongoose.Promise = Promise;
 
 mongoose
-  .connect("mongodb://localhost/ease-incoterm-backend", {useMongoClient : true})
+  .connect(process.env.MONGODB_URI, {useMongoClient : true})
   .then(() => {
     console.log('Connected to MongoDB for Iccs!')
   }).catch(err => {
